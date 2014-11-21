@@ -5,7 +5,10 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"laravelbook/ardent": "dev-master",
+		"zizaco/confide": "~4.0@dev",
+		"zizaco/entrust": "1.2.*@dev"
 	},
 	"autoload": {
 		"classmap": [
