@@ -1,7 +1,7 @@
-@extends('layouts.dashboard')
+@extends('layouts.advanced')
 
-@section('pagetitle')
-    HAGI!
+@section('title')
+    iQuery - Advanced Search
 @stop
 
 @section('content')
