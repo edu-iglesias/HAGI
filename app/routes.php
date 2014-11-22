@@ -47,3 +47,7 @@ Route::get('/test', function()
 
 	dd($query);
 });
+
+
+Route::get('/chart2', 'MerchantController@chart2');
+
