@@ -16,6 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="dash/css/cover.css" rel="stylesheet">
     <link href="dash/css/custom.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -47,7 +48,7 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">iQuery</h1><br/>
+            <!--<h1 class="cover-heading">iQuery</h1>--><img src="logo.png" width="400" /><br/>
             <p class="lead">
               <select id="search-dropdown">
                 <option value="volvo">Query 1</option>

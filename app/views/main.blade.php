@@ -1,4 +1,4 @@
-@extends('layouts.results')
+@extends('layouts.main')
 
 @section('title')
     iQuery - Advanced Search
