@@ -1,10 +1,8 @@
 <?php
 
-use Zizaco\Confide\ConfideUser;
-use Zizaco\Confide\ConfideUserInterface;
-use Zizaco\Entrust\HasRole;
-class User extends Eloquent implements ConfideUserInterface
+
+class User extends Eloquent 
 {
-    use ConfideUser;
-    use HasRole; 
+	protected $table = 'users';
+    public $timestamps = true;
 }

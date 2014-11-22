@@ -10,10 +10,11 @@ Route::get('/register', 'RegisterController@index');
 Route::post('/register', 'RegisterController@store');
 
 /* MERCHANT ROUTES */
-Route::post('/merchant', 'MerchantController@index');
+Route::get('/merchant', 'MerchantController@index');
 
 
 /* GOVERNMENT ROUTES */
+
 
 
 /* TEST ROUTES */
