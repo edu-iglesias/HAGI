@@ -4,6 +4,26 @@
     Login
 @stop
 
+@section('css')
+
+<!--     {{ HTML::style('combobox/docs/css/bootstrap-3.2.0.min.css') }}
+    {{ HTML::style('combobox/docs/css/bootstrap-example.css') }}
+    {{ HTML::style('combobox/docs/css/prettify.css') }} -->
+
+    {{ HTML::script('combobox/docs/js/jquery-2.1.1.min.js') }}
+    {{ HTML::script('combobox/docs/js/bootstrap-3.2.0.min.js') }}
+    {{ HTML::script('combobox/docs/js/prettify.js') }}
+
+    {{ HTML::style('combobox/dist/css/bootstrap-multiselect.css') }}
+    {{ HTML::script('combobox/dist/js/bootstrap-multiselect.js') }}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            window.prettyPrint() && prettyPrint();
+        });
+    </script>
+@stop
+
 @section('contents')
     <div class="col-sm-6 col-lg-6 col-centered padding main">
         <div class="row">
@@ -61,6 +81,19 @@
             <div id="pass-strength-result" class="" style="margin-top:-5px;margin-bottom:30px; color:black;float:right;">Strength indicator</div>
             <div id="pwd_bar" style="float:right; display:none;" style="margin-top:-5px;"></div>
             <span id="pwd_meter" style="float:right; display:none;"></span><br/><br/>
+
+            <div>
+                <label>Preferences: </label>
+                <select name="preferences[]" id="example-getting-started" multiple="multiple">
+                    <option value="cheese">Cheese</option>
+                    <option value="tomatoes">Tomatoes</option>
+                    <option value="Mozzarella">Mozzarella</option>
+                    <option value="Mushrooms">Mushrooms</option>
+                    <option value="Pepperoni">Pepperoni</option>
+                    <option value="Onions">Onions</option>
+                </select>
+                <br><br>
+            </div>
 
             {{ Form::submit('Register', ['id'=>'submit submit-reg','class' => 'btn btn-lg btn-success btn-block sbmt']) }}
 
@@ -293,4 +326,10 @@
             border-color: #ddd !important;
         }
         </style>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example-getting-started').multiselect();
+            });
+        </script>
 @stop

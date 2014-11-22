@@ -28,3 +28,9 @@ Route::get('/test', function()
 });
 
 
+Route::get('/chart', function()
+{
+	$bidInfos = get_query_bid_info();
+	
+	return View::make('chart')->with('bidInfos',$bidInfos);
+});
