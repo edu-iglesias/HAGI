@@ -6,8 +6,6 @@
 
 @section('css')
 
-{{ HTML::script('ajax/bootstrap-ajax.js') }}
-
 <script language="Javascript">
     var Numero = new Array();
     Numero[0] = '1';
@@ -20,6 +18,8 @@
 @stop
 
 @section('contents')
+
+<?php $loop = 3 ?>
 
 <div class="imageHolder">
     <center><h1><p id="image">Image Here</p></h1><center>
@@ -42,24 +42,66 @@
                 <th>Criteria Literal</th> 
                 <th>Condition</th>
             </tr>
-        
-            <script language="Javascript">
-              for (counter in Numero) {
+            
+            @for ($i = 0; $i < 3; $i++)
+            <tr>
+                <td style="width:100px;">
+                    <p><input class="form-control" list="tableName" onchange="changeTable(this.value)">
+                        <datalist id="tableName">
+                            <option value="Award"><option value="Bid">
+                        </datalist>
+                    </p>
+                </td>
+<!-- 
+                <td style="width:100px;">
+                    <p><input class="form-control" list="fieldName">
+                        <datalist id="fieldName">
+                            <option value="AwardNo">
+                            <option value="Ko">
+                        </datalist></p>
+                </td> -->
 
-                document.write("<tr>");
-                document.write("<td style=\"width:100px;\"><p><input class=\"form-control\" list=\"tableName\" onchange=\"changeTable(this.value)\"><datalist id=\"tableName\"><option value=\"Award\"><option value=\"Bid\"></datalist></p></td>");
-                document.write("<td style=\"width:100px;\"><p><input class=\"form-control\" list=\"fieldName\"><datalist id=\"fieldName\"><option value=\"AwardNo\"><option value=\"Ko\"></datalist></p></td>");
-                document.write("<td style=\"width:100px;\"><p><input type=\"radio\" name=\"sort\" value=\"ascending\" checked> Ascending &nbsp;<br> <input type=\"radio\" name=\"sort\" value=\"descending\" > Descending");
-                document.write("<td style=\"width:100px;\"><p><input type=\"checkbox\" name=\"show\">");
-                document.write("<td style=\"width:100px;\"><p><input type=\"checkbox\" name=\"unique\">");          
-                document.write("<td style=\"width:100px;\"><p><input class=\"form-control\" list=\"operator\"><datalist id=\"operator\"><option value=\">\"><option value=\"<\"></datalist></p></td>");
-                document.write("<td style=\"width:100px;\"><p><input class=\"form-control\" type=\"text\" name=\"literal\">");
-                document.write("<td style=\"width:100px;\"><p><input type=\"radio\" name=\"sort\" value=\"not\" checked>NOT &nbsp;<br> <input type=\"radio\" name=\"sort\" value=\"and\">AND &nbsp;<br> <input type=\"radio\" name=\"sort\" value=\"or\">OR");
-                document.write("</tr>");
-              }
-            </script>    
+                <td style="width:100px;">
+                    <p><input class="form-control" list="fieldName">
+                        <datalist id="fieldName">
+                            @foreach(tb1 as $key)
+                                <option value="{{ $key }}">
+                            @endforeach
+                        </datalist></p>
+                </td>
 
-   
+                <td style="width:100px;">
+                    <p><input type="radio" name="sort" value="ascending" checked> Ascending &nbsp;<br> 
+                        <input type="radio" name="sort" value="descending" > Descending
+                </td>
+
+                <td style="width:100px;">
+                    <p><input type="checkbox" name="show">
+                </td>
+
+                <td style="width:100px;">
+                    <p><input type="checkbox" name="unique"> 
+                </td>
+
+                <td style="width:100px;">
+                    <p><input class="form-control" list="operator">
+                        <datalist id="operator">
+                            <option value=">">
+                            <option value="<">
+                        </datalist></p>
+                </td>
+
+                <td style="width:100px;">
+                    <p><input class="form-control" type="text" name="literal">
+                </td>
+
+                <td style="width:100px;">
+                    <p><input type="radio" name="sort" value="not" checked>NOT &nbsp;<br> 
+                        <input type="radio" name="sort" value="and">AND &nbsp;<br> 
+                        <input type="radio" name="sort" value="or">OR
+                </td>
+            </tr>    
+            @endfor
         </table>
 
         <p class="submit">
@@ -97,7 +139,7 @@
             var cell8 = row.insertCell(7);
 
             cell1.innerHTML = "<td style=\"width:100px;\"><p><input class=\"form-control\" list=\"tableName\"><datalist><option value=\"Award\"><option value=\"Bid\"></datalist></p></td>";
-            cell2.innerHTML = "<td style=\"width:100px;\"><p><input class=\"form-control\" list=\"fieldName\"><datalist><option value=\"AwardNo\"><option value=\"Ko\"></datalist></p></td>";
+            cell2.innerHTML = "<td id=\"fieldName\" style=\"width:100px;\"><p><input class=\"form-control\" list=\"fieldName\"><datalist><option value=\"AwardNo\"><option value=\"Ko\"></datalist></p></td>";
             cell3.innerHTML = "<td style=\"width:100px;\"><p><input type=\"radio\" name=\"sort\" value=\"ascending\" checked> Ascending &nbsp;<br> <input type=\"radio\" name=\"sort\" value=\"descending\" > Descending";
             cell4.innerHTML = "<td style=\"width:100px;\"><p><input type=\"checkbox\" name=\"show\">";
             cell5.innerHTML = "<td style=\"width:100px;\"><p><input type=\"checkbox\" name=\"unique\">";
@@ -111,10 +153,57 @@
             document.getElementById("myForm").reset();
         }
 
-        function changeTable(value)
+        function changeTable(value, tablename)
         {
             window.base = 'SELECT * FROM';
             window.tableName = value;
+
+            switch(tablename) 
+            {
+                case "haha":
+                    alert('haha');
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    break;
+                case "hehe":
+                alert('haha');
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    break;
+                case n:
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    break;
+                case n:
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    document.getElementById('fieldName').style.display = "";
+                    break;
+
+                default:
+                    default code block
+            }
+
+
             document.getElementById('myQuery').innerHTML = window.tableName;
             changeString();
         }
