@@ -13,9 +13,9 @@ class CreateUserTable extends Migration {
 		{
 			$table->increments('id');
 			$table->string('email');
-			$table->string('password');
-			$table->string('org_name');
-			$table->string('pref_id');
+			$table->string('password')->nullable();
+			$table->string('org_name')->nullable();
+			$table->string('pref_id')->nullable();
 			$table->timestamps();
 
 		});

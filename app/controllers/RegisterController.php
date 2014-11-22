@@ -9,11 +9,14 @@ class RegisterController extends BaseController {
 
 	public function store()
 	{
+		$inputs = Input::all();
 		
 		$rules = array(		
 			'email'	=> 'required|email|max:100|unique:users,email', 
-			'password' => 'Required|min:5|Confirmed|max:100',
-        	'password_confirmation' => 'Required|min:5|max:100',
+			'password' => 'required|min:5|Confirmed|max:100',
+        	'password_confirmation' => 'required|min:5|max:100',
+        	'organizationName' => 'required',
+        	'userType'=>'required|in:Merchant,Government Agency',
 		);
 
 		$validationResult = Validator::make($inputs, $rules);
