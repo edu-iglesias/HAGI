@@ -28,7 +28,7 @@ Route::get('/test', function()
 });
 Route::get('/testc', function()
 {
-$results=get_classifications();
+$results=get_check_org('sd');
 
 	dd($results);
 });

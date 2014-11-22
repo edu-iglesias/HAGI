@@ -26,7 +26,14 @@
 
 		return $results;
 	}
+	function get_check_org($org)
+	{	
+		$sql = 'SELECT * FROM "'.get_organization().'" WHERE org_name = '."'".$org."'".' LIMIT 100';
+	
+		$results = get_query($sql);
 
+		return count($results);
+	}
 
 	//Table Names
 	function get_award()
