@@ -1,23 +1,22 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
 Route::get('/', function()
 {
 	return View::make('main');
 });
 
+/* REGISTER ROUTES */
+Route::get('/register', 'RegisterController@index');
+Route::post('/register', 'RegisterController@store');
 
-//
+/* MERCHANT ROUTES */
+Route::post('/merchant', 'MerchantController@index');
+
+
+/* GOVERNMENT ROUTES */
+
+
+/* TEST ROUTES */
 Route::get('/test', function()
 {
 	$sql = 'SELECT * FROM "'.get_award().'" LIMIT 5';
@@ -26,6 +25,7 @@ Route::get('/test', function()
 
 	dd($results);
 });
+<<<<<<< HEAD
 Route::get('/testc', function()
 {
 $results=get_check_org('sd');
@@ -33,4 +33,6 @@ $results=get_check_org('sd');
 	dd($results);
 });
 //
+=======
+>>>>>>> 3362d984bdfd9c17ba6478f8eb4992181e161940
 

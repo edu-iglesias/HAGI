@@ -2,3 +2,20 @@
     float: none;
     margin: 0 auto;
 }
+
+.registration-form{
+	margin-bottom: 20px;
+	padding: 40px;
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: 1px 0px 10px rgba(0, 0, 0, .05);
+}
+
+.reg-form{
+	padding: 25px 20px;
+	font-size: 20px;
+}
+
+#submit-reg{
+	padding: 10px;
+	font-size: 25px
+}
