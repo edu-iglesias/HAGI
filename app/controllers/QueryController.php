@@ -2,27 +2,11 @@
 
 class QueryController extends BaseController {
 
+
 	public function index()
 	{
-		return View::make('query');
-	}
-	public function columnList()
-	{
 
 
-	if($tablename=="Awarding")
-		$tableCode = get_award();
-	else if($tablename=="Bidders")
-		$tableCode = get_bidders();
-	else if($tablename=="Organization")
-		$tableCode = get_organization();
-	else if($tablename=="Bid Line Item")
-		$tableCode = get_bid_line_item();
-	else if($tablename=="Bid Information")
-		$tableCode = get_bid_information();
-	else if($tablename=="Project Location")
-		$tableCode = get_project_location();
-	else if($tablename=="Organization Business Category")
 	
 	$rows = gen_query_getrow("Project Location");
 
