@@ -24,20 +24,117 @@ class QueryController extends BaseController {
 		$tableCode = get_project_location();
 	else if($tablename=="Organization Business Category")
 	
-
-
-	$rows[$tablename] = gen_query_getrow($tablename);
+	$rows = gen_query_getrow("Project Location");
 
 	// transform object to array
-		$mainstring = "";
-		foreach ($rows[$tablename] as $key) 
+		$mainarray = array();
+		foreach ($rows as $key) 
 		{
 			$cols = (Array) $key;
 			foreach ($cols as $col) 
 			{
-			$mainstring[] .= ', '.$col;
+			$mainarray[] = $col;
 			}
 		}
+
+		$project_location = $mainarray;
+
+		$rows = gen_query_getrow("Organization Business Category");
+
+	// transform object to array
+		$mainarray = array();
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainarray[] = $col;
+			}
+		}
+
+		$org_bus_cat = $mainarray;
+
+
+		$rows = gen_query_getrow("Bid Line Item");
+
+	// transform object to array
+		$mainarray = array();
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainarray[] = $col;
+			}
+		}
+
+		$bid_line_item = $mainarray;
+
+	$rows = gen_query_getrow("Bid Information");
+
+	// transform object to array
+		$mainarray = array();
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainarray[] = $col;
+			}
+		}
+
+		$bid_info = $mainarray;
+
+
+	$rows = gen_query_getrow("Awarding");
+
+	// transform object to array
+		$mainarray = array();
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainarray[] = $col;
+			}
+		}
+
+		$awarding = $mainarray;
+
+	$rows = gen_query_getrow("Bidders");
+
+	// transform object to array
+		$mainarray = array();
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainarray[] = $col;
+			}
+		}
+
+		$bidders = $mainarray;
+
+	$rows = gen_query_getrow("Organization");
+
+	// transform object to array
+		$mainarray = array();
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainarray[] = $col;
+			}
+		}
+
+		$organization = $mainarray;
+
+		return View::make('query')->with('project_location', $project_location)
+		->with('org_bus_cat', $org_bus_cat)->with('bid_line_item', $bid_line_item)
+		->with('bid_info', $bid_info)->with('awarding', $awarding)
+		->with('bidders', $bidders)->with('organization', $organization);
 
 	
 }
