@@ -22,13 +22,12 @@
 
 @if(Session::get('sql'))
 <input type="text" name="catch" value='{{Session::get("sql")}}' id="catch">
+<input type="text" name="tcatch" value='{{Session::get("sqltitle")}}' id="tcatch">
 <script>
 var sql = document.getElementById('catch').value;
-alert(sql);
- localStorage.setItem('sql',sql);
- 
- //localStorage.setItem("sql", "str");
-alert('b');
+var title = document.getElementById('tcatch').value;
+ localStorage.setItem(title, sql);
+
 {{Session::forget('sql');}}
 </script>
 @endif
@@ -47,6 +46,7 @@ alert('b');
       <form method="post" action="/query" id="myForm">
         <table class="tbl_search table" id="myTable">
             <tr>
+          
                 <th>Table Name</th> 
                 <th>Field Name</th> 
                 <th>Sort</th> 
@@ -59,6 +59,9 @@ alert('b');
             
             @for ($i = 0; $i < 3; $i++)
             <tr>
+               
+                 
+           
                 <td style="width:100px;">
                     <p><input class="form-control" list="tableName"  name="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
                         <datalist id="tableName">
@@ -162,6 +165,10 @@ alert('b');
                         <datalist id="operator">
                             <option value=">">
                             <option value="<">
+                            <option value=">=">
+                            <option value ="<=">
+                            <option value = "=">
+                            <option value = "!=">
                         </datalist></p>
                 </td>
 
@@ -177,7 +184,7 @@ alert('b');
             </tr>    
             @endfor
         </table>
-
+        <p><input class="form-control" type="text" name="title" placeholder="Query Title"></p>
         <p class="submit">
           <input type="button"  name="btnSave" id="btnSave" value="Save" onclick="SaveLocalStorage()">&nbsp;
           <input type="submit"  name="btnSearch" id="btnSearch" value="Search">&nbsp;
@@ -207,10 +214,8 @@ alert('b');
 
         function addRow() 
         {
-
-
-            var note = localStorage.getItem('sql'); 
-                alert(localStorage.getItem('sql'));
+//            var note = localStorage.getItem('sql'); 
+  //              alert(localStorage.getItem('sql'));
 
             var table = document.getElementById("myTable");
             var rows = document.getElementById("myTable").getElementsByTagName("tr").length;
@@ -224,6 +229,7 @@ alert('b');
             var cell6= row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
+           
 
             cell1.innerHTML = "<td style=\"width:100px;\"><p><input disabled class=\"form-control\" list=\"tableName\"><datalist><option value=\"Award\"><option value=\"Bid\"></datalist></p></td>";
             cell2.innerHTML = "<td id=\"fieldName\" style=\"width:100px;\"><p><input class=\"form-control\" list=\"fieldName\"><datalist><option value=\"AwardNo\"><option value=\"Ko\"></datalist></p></td>";

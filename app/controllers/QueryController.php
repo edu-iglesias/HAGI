@@ -152,10 +152,12 @@ public function getquery()
 
 	$unique=Input::get('unique');
 
+
+
 	if(Input::get('hiddenInput')==1)
 	{
 		Session::put('sql',  gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique));
-		
+		Session::put('sqltitle', Input::get('title'));
 		return Redirect::to('/query');
 	}
 	else
@@ -163,6 +165,7 @@ public function getquery()
 	
 		return gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
 	}
+
  		
 }
 

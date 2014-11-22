@@ -9,6 +9,6 @@
 @stop
 
 @section('contents')
-hello
+
     
 @stop
