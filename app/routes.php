@@ -11,6 +11,10 @@ Route::post('/register', 'RegisterController@store');
 
 /* MERCHANT ROUTES */
 Route::get('/merchant', 'MerchantController@index');
+Route::get('/bids', function()
+{
+	return View::make('merchant/bids');
+});
 
 
 /* GOVERNMENT ROUTES */
