@@ -61,9 +61,7 @@ Route::get('/test', function()
 
 Route::get('/chart2', 'MerchantController@chart2');
 
-<<<<<<< HEAD
+
  
 /* NEW ROUTES */
 Route::get('/query', 'QueryController@index');
-=======
->>>>>>> 45a4a6e17489813ff5dcbc3a3ccb47560f74b7cd

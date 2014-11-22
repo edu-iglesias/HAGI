@@ -66,3 +66,15 @@ a.adv-search:hover{
 	padding: 5px;
 	border: solid 1px rgb(223, 223, 223);
 }
+
+.results{
+	text-align: left;
+}
+
+.masthead.results{
+	border-bottom: solid 1px rgb(234, 234, 234);
+	box-shadow: 0px 2px 1px rgb(246, 246, 246);
+	background: white;
+	position: fixed;
+	z-index: 1;
+}
