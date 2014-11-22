@@ -8,6 +8,7 @@
 		{{ HTML::style('dash/css/bootstrap.min.css') }}
 		{{ HTML::style('dash/css/datepicker3.css') }}
 		{{ HTML::style('dash/css/styles.css') }}
+		{{ HTML::style('dash/css/custom.css') }}
 		@yield('css')
 
 		@yield('javascripts')
