@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>@yield('pagetitle')</title>
+		<link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
 		{{ HTML::style('dash/css/bootstrap.min.css') }}
 		{{ HTML::style('dash/css/datepicker3.css') }}
