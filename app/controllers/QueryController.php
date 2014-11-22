@@ -136,6 +136,7 @@ public function tableList()
 }
 public function getquery()
 {
+
 	$tablename=Input::get('tableName');
 	$field=Input::get('fieldName');
 
@@ -151,7 +152,18 @@ public function getquery()
 
 	$unique=Input::get('unique');
 
- return gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
+	if(Input::get('hiddenInput')==1)
+	{
+		Session::put('sql',  gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique));
+		
+		return Redirect::to('/query');
+	}
+	else
+	{
+	
+		return gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
+	}
+ 		
 }
 
 }
