@@ -17,22 +17,13 @@ Route::get('/merchant', 'MerchantController@index');
 
 
 
-/* TEST ROUTES */
-Route::get('/test', function()
-{
-	$sql = 'SELECT * FROM "'.get_award().'" LIMIT 5';
-	
-	$results = get_query($sql);
-
-	dd($results);
-});
-
 
 Route::get('/chart', function()
 {
 	// fetch data from api
 	$bidInfos = get_query_bid_info();
 
+	dd($bidInfos);
 	// transform object to array
 	$mainarray = array();
 	foreach ($bidInfos as $key) 
@@ -48,4 +39,11 @@ Route::get('/chart', function()
 	}
 	fclose($file); 
 
+});
+
+Route::get('/test', function()
+{
+	$query = gen_query_condition_order("Awarding", "award_title", "=", "BALLPEN","budget", "ASC");
+
+	dd($query);
 });
