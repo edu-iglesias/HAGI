@@ -15,9 +15,23 @@
 
 <script src="js/storage.js"></script>
 
+
 @stop
 
 @section('contents')
+
+@if(Session::get('sql'))
+<input type="text" name="catch" value='{{Session::get("sql")}}' id="catch">
+<script>
+var sql = document.getElementById('catch').value;
+alert(sql);
+ localStorage.setItem('sql',sql);
+ 
+ //localStorage.setItem("sql", "str");
+alert('b');
+{{Session::forget('sql');}}
+</script>
+@endif
 
 <?php $loop = 3 ?>
 
@@ -30,7 +44,7 @@
 <section class="container" style="width:100%;">
     <div class="advanceSearch" style="width:80%">
       <h1><!-- iQuery Advance Search --></h1>
-      <form method="post" action="/getquery" id="myForm">
+      <form method="post" action="/query" id="myForm">
         <table class="tbl_search table" id="myTable">
             <tr>
                 <th>Table Name</th> 
@@ -120,7 +134,6 @@
                             @endforeach
                         </datalist></p>
                 </td>
-
                 <td id="tb7" style="display:none;">
                     <p><input class="form-control" list="fieldName7">
                         <datalist id="fieldName7">
@@ -166,12 +179,12 @@
         </table>
 
         <p class="submit">
-          <input type="button"  name="btnSave" id="btnSave" value="Save" onclick="SaveLocalStorage">&nbsp;
+          <input type="button"  name="btnSave" id="btnSave" value="Save" onclick="SaveLocalStorage()">&nbsp;
           <input type="submit"  name="btnSearch" id="btnSearch" value="Search">&nbsp;
           <input type="reset"   name="btnClear" value="Clear">
           <input type="reset"   name="btnClear" value="Add Row" style="float:right;" onclick="addRow()">
         </p>
-
+        <input type="hidden" id='hiddenInput' value='0' name='hiddenInput'>
       </form>
     </div>
 
@@ -184,8 +197,21 @@
     <!-- Scripts Here -->
 
     <script>
+    function SaveLocalStorage()
+    {
+        //alert('haha');
+        document.getElementById('hiddenInput').value = 1;
+        document.getElementById('myForm').submit();
+
+    }
+
         function addRow() 
         {
+
+
+            var note = localStorage.getItem('sql'); 
+                alert(localStorage.getItem('sql'));
+
             var table = document.getElementById("myTable");
             var rows = document.getElementById("myTable").getElementsByTagName("tr").length;
 
@@ -315,5 +341,6 @@
         { 
             document.getElementById('myQuery').innerHTML = window.tableName;
         }
+    
     </script>
 @stop
