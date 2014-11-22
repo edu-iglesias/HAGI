@@ -47,13 +47,124 @@
           </div>
 
           <div class="inner cover">
-            <h1 class="cover-heading">iQuery</h1><br/>
+            <h1 class="cover-heading">ERD</h1><br/>
             <p class="lead">
               <div class="panel panel-default adv-panel col-centered">
                 <div class="panel-body">
-                  Basic panel example
+                  <div class="search-row">
+                    <div class="col-xs-6 col-sm-3 col-lg-3">
+                      <select class="search-select">
+                        <option value="volvo">Query 1</option>
+                        <option value="saab">Query 2</option>
+                        <option value="mercedes">Query 3</option>
+                        <option value="audi">Query 4</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-lg-6">
+                      <select class="search-select">
+                        <option value="volvo">Query 1</option>
+                        <option value="saab">Query 2</option>
+                        <option value="mercedes">Query 3</option>
+                        <option value="audi">Query 4</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-lg-3">
+                      <input type="radio" name="operator" value="and">AND 
+                      <input type="radio" name="operator" value="or" style="margin-left: 20px;">OR
+                    </div>
+                  </div>
+                  <div class="search-row">
+                    <div class="col-xs-6 col-sm-3 col-lg-3">
+                      <select class="search-select">
+                        <option value="volvo">Query 1</option>
+                        <option value="saab">Query 2</option>
+                        <option value="mercedes">Query 3</option>
+                        <option value="audi">Query 4</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-lg-6">
+                      <select class="search-select">
+                        <option value="volvo">Query 1</option>
+                        <option value="saab">Query 2</option>
+                        <option value="mercedes">Query 3</option>
+                        <option value="audi">Query 4</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-lg-3">
+                      <input type="radio" name="operator" value="and">AND 
+                      <input type="radio" name="operator" value="or" style="margin-left: 20px;">OR
+                    </div>
+                  </div>
+                  <div>
+                    <div class="col-xs-6 col-sm-3 col-lg-3">
+                      <select class="search-select">
+                        <option value="volvo">Query 1</option>
+                        <option value="saab">Query 2</option>
+                        <option value="mercedes">Query 3</option>
+                        <option value="audi">Query 4</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6 col-sm-6 col-lg-6">
+                      <select class="search-select">
+                        <option value="volvo">Query 1</option>
+                        <option value="saab">Query 2</option>
+                        <option value="mercedes">Query 3</option>
+                        <option value="audi">Query 4</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-lg-3" style="padding: 5px">
+                      <a href="#">Add more</a>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <br/>
+              <div class="panel panel-default adv-panel col-centered">
+                <div class="panel-body">
+                  <div class="search-row">
+                   <div class="col-xs-6 col-sm-6 col-lg-3" style="padding: 5px;">
+                    <strong>Location</strong>
+                   </div>
+                   <div class="col-xs-6 col-sm-6 col-lg-9">
+                    <select class="search-select">
+                        <option value="volvo">Location 1</option>
+                        <option value="saab">Location 2</option>
+                        <option value="mercedes">Location 3</option>
+                        <option value="audi">Location 4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                     <div class="col-xs-6 col-sm-6 col-lg-3" style="padding: 5px;">
+                      <strong>Type</strong>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-9">
+                      <select class="search-select">
+                          <option value="volvo">Type 1</option>
+                          <option value="saab">Type 2</option>
+                          <option value="mercedes">Type 3</option>
+                          <option value="audi">Type 4</option>
+                        </select>
+                     </div>
+                  </div>
+                </div>
+              </div>
+              <br/>
+              <div class="panel panel-default adv-panel col-centered">
+                <div class="panel-body">
+                  <div>
+                     <div class="col-xs-6 col-sm-6 col-lg-3" style="padding: 5px;">
+                      <strong>Date</strong>
+                     </div>
+                     <div class="col-xs-6 col-sm-6 col-lg-9">
+                      <input type="text" placeholder="start" style="padding: 5px; border: solid 1px rgb(223, 223, 223);"/>
+                      <span style="margin: 0 10px;"> TO </span>
+                      <input type="text" placeholder="end" style="padding: 5px; border: solid 1px rgb(223, 223, 223);"/>
+                     </div>
+                  </div>
+                </div>
+              </div>
+              <br/>
               <a href="#" class="btn btn-lg btn-default adv-search">Advanced Search</a>
             </p>
           </div>
