@@ -1,4 +1,4 @@
-@extends('layouts.source')
+@extends('layouts.home')
 
 @section('pagetitle')
     HAGI!
