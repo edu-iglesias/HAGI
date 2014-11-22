@@ -23,7 +23,7 @@ Route::get('/chart', function()
 	// fetch data from api
 	$bidInfos = get_query_bid_info();
 
-	dd($bidInfos);
+
 	// transform object to array
 	$mainarray = array();
 	foreach ($bidInfos as $key) 
@@ -40,10 +40,16 @@ Route::get('/chart', function()
 	fclose($file); 
 
 });
+Route::get('/testc', function()
+{
+	$query = gen_query_getrow("Awarding");
+
+	dd($query);
+});
 
 Route::get('/test', function()
 {
-	$query = gen_query_condition_order("Awarding", "award_title", "=", "BALLPEN","budget", "ASC");
+	$query = gen_query("Awarding", "award_title", "=", "BALLPEN","budget", "ASC", "0", "1");
 
 	dd($query);
 });
