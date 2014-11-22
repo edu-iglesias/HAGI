@@ -1,4 +1,113 @@
 <?php
+//
+function gen_query_getrow($tablename)
+{
+	$tableCode = "";
+
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
+	$sql = 'SELECT * FROM "'.$tableCode.'" LIMIT 1 ';
+	
+	$results = get_query($sql);
+
+	// transform object to array
+	$mainarray = array();
+
+	foreach ($results as $key) 
+	{
+		$mainarray[] = (Array) $key;
+	}
+	$colarray = array();
+	foreach ($mainarray as $main) 
+	{
+		$colarray = array_keys ($main);
+
+	}
+
+	return $colarray;
+
+
+}
+
+
+
+
+
+function gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique)
+{
+	$tableCode = "";
+	
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
+	$extension = "";
+	$preextension ="";
+
+	if($literal!=NULL&&$condition!=NULL)
+				$extension .= 'WHERE '.$field.' '.$condition.' '."'".$literal."' ";
+	if($order!=NULL&&$orderfield!=NULL)
+				$extension .= 'ORDER BY '.$orderfield.' '.$order;
+	if($unique!=0)
+				$preextension = ' DISTINCT';
+	if($show!=1)
+	{
+	
+		$rows = gen_query_getrow($tablename);
+
+	// transform object to array
+		$mainstring = "";
+		foreach ($rows as $key) 
+		{
+			$cols = (Array) $key;
+			foreach ($cols as $col) 
+			{
+			$mainstring .= ', '.$col;
+			}
+		}
+		 $mainstring = substr($mainstring, 1);
+	}
+
+
+	if($mainstring!=NULL)
+		$mainstring="*";
+
+	$sql = 'SELECT '.$preextension.' '.$mainstring.' FROM "'.$tableCode.'"'.$extension.' LIMIT 100';
+		
+	$results = get_query($sql);
+
+		return $results;
+
+}
+
+
+
+
+
 // My common functions
 
 	function get_query($sql)
@@ -13,7 +122,7 @@
 		curl_close($ch);
 		
 		$readResults = json_decode($content);
-
+		
 		$specifics = $readResults->result->records;
 
 		return $specifics;
@@ -80,4 +189,6 @@
 	{
 		return '58ea40bf-15e9-4c38-adef-fd93455d8c7e';
 	}
+
+
 ?>
