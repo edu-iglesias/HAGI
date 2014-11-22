@@ -25,14 +25,5 @@ Route::get('/test', function()
 
 	dd($results);
 });
-<<<<<<< HEAD
-Route::get('/testc', function()
-{
-$results=get_check_org('sd');
 
-	dd($results);
-});
-//
-=======
->>>>>>> 3362d984bdfd9c17ba6478f8eb4992181e161940
 
