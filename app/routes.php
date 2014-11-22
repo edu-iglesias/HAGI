@@ -48,4 +48,9 @@ Route::get('/chart', function()
 	}
 	fclose($file); 
 
+	dd($bidInfos);
+
 });
+
+
+Route::get('/chart2', 'MerchantController@chart2');
