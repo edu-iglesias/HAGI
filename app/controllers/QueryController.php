@@ -131,10 +131,10 @@ class QueryController extends BaseController {
 
 		$organization = $mainarray;
 
-		return View::make('query')->with('project_location', $project_location)
-		->with('org_bus_cat', $org_bus_cat)->with('bid_line_item', $bid_line_item)
-		->with('bid_info', $bid_info)->with('awarding', $awarding)
-		->with('bidders', $bidders)->with('organization', $organization);
+		return View::make('query')->with('tb1', $project_location)
+		->with('tb2', $org_bus_cat)->with('tb3', $bid_line_item)
+		->with('tb4', $bid_info)->with('tb5', $awarding)
+		->with('tb6', $bidders)->with('tb7', $organization);
 
 	
 }
