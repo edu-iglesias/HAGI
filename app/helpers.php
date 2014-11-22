@@ -18,6 +18,14 @@
 
 		return $specifics;
 	}
+	function get_query_bid_info()
+	{	
+		$sql = 'SELECT * FROM "'.get_bid_information().'" LIMIT 5';
+	
+		$results = get_query($sql);
+
+		return $results;
+	}
 	function get_classifications()
 	{	
 		$sql = 'SELECT classification, COUNT(ref_no), SUM(approved_budget) FROM "'.get_bid_information().'" GROUP BY classification LIMIT 100';

@@ -20,11 +20,7 @@ Route::get('/merchant', 'MerchantController@index');
 /* TEST ROUTES */
 Route::get('/test', function()
 {
-	$sql = 'SELECT * FROM "'.get_award().'" LIMIT 5';
-	
-	$results = get_query($sql);
-
-	dd($results);
+	return get_query_bid_info();
 });
 
 
