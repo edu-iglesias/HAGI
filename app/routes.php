@@ -13,7 +13,13 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('main');
+});
+
+
+Route::get('/register', function()
+{
+	return View::make('register');
 });
 //
 
