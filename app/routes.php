@@ -26,5 +26,11 @@ Route::get('/test', function()
 
 	dd($results);
 });
+Route::get('/testc', function()
+{
+$results=get_classifications();
+
+	dd($results);
+});
 //
 
