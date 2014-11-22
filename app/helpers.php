@@ -69,6 +69,7 @@ function gen_query($tablename, $field, $condition, $literal, $orderfield, $order
 	$preextension ="";
 
 	if($literal!=NULL&&$condition!=NULL)
+
 				$extension .= 'WHERE '.$field.' '.$condition.' '."'".$literal."' ";
 	if($order!=NULL&&$orderfield!=NULL)
 				$extension .= 'ORDER BY '.$orderfield.' '.$order;
@@ -86,7 +87,8 @@ function gen_query($tablename, $field, $condition, $literal, $orderfield, $order
 			$cols = (Array) $key;
 			foreach ($cols as $col) 
 			{
-			$mainstring .= ', '.$col;
+				if($col!=$field)
+					$mainstring .= ', '.$col;
 			}
 		}
 		 $mainstring = substr($mainstring, 1);
@@ -121,7 +123,7 @@ function gen_query($tablename, $field, $condition, $literal, $orderfield, $order
 		$content = trim(curl_exec($ch));
 		curl_close($ch);
 		
-		$readResults = json_decode($content);
+		$readResults = json_decode($content, TRUE);
 		
 		$specifics = $readResults->result->records;
 

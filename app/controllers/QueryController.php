@@ -150,5 +150,9 @@ public function tableList()
 	"Organization Business Category"
 		);
 }
+public function searchquery()
+{
+	
+}
 
 }
