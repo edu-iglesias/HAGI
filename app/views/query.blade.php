@@ -15,9 +15,22 @@
 
 <script src="js/storage.js"></script>
 
+
 @stop
 
 @section('contents')
+
+@if(Session::get('sql'))
+<input type="text" name="catch" value='{{Session::get("sql")}}' id="catch">
+<input type="text" name="tcatch" value='{{Session::get("sqltitle")}}' id="tcatch">
+<script>
+var sql = document.getElementById('catch').value;
+var title = document.getElementById('tcatch').value;
+ localStorage.setItem(title, sql);
+
+{{Session::forget('sql');}}
+</script>
+@endif
 
 <?php $loop = 3 ?>
 
@@ -30,9 +43,10 @@
 <section class="container" style="width:100%;">
     <div class="advanceSearch" style="width:80%">
       <h1><!-- iQuery Advance Search --></h1>
-      <form method="post" action="" id="myForm">
+      <form method="post" action="/query" id="myForm">
         <table class="tbl_search table" id="myTable">
             <tr>
+          
                 <th>Table Name</th> 
                 <th>Field Name</th> 
                 <th>Sort</th> 
@@ -45,8 +59,11 @@
             
             @for ($i = 0; $i < 3; $i++)
             <tr>
+               
+                 
+           
                 <td style="width:100px;">
-                    <p><input class="form-control" list="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
+                    <p><input class="form-control" list="tableName"  name="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
                         <datalist id="tableName">
                             <option value="Awarding">
                             <option value="Bidders">
@@ -60,8 +77,8 @@
                 </td>
 
                 <td id="tb0" style="width:100px;">
-                    <p><input class="form-control" list="fieldName" disabled>
-                        <datalist id="fieldName">
+                    <p><input class="form-control" list="fieldName" name="fieldName" disabled>
+                        <datalist id="fieldName" >
                             <option value="AwardNo">
                             <option value="Ko">
                         </datalist></p>
@@ -120,7 +137,6 @@
                             @endforeach
                         </datalist></p>
                 </td>
-
                 <td id="tb7" style="display:none;">
                     <p><input class="form-control" list="fieldName7">
                         <datalist id="fieldName7">
@@ -132,8 +148,8 @@
 
 
                 <td >
-                    <p><input type="radio" name="sort" value="ascending" checked> Ascending &nbsp;<br> 
-                        <input type="radio" name="sort" value="descending" > Descending
+                    <p><input type="radio" name="sort" value="ASC" checked> Ascending &nbsp;<br> 
+                        <input type="radio" name="sort" value="DESC" > Descending
                 </td>
 
                 <td >
@@ -145,10 +161,14 @@
                 </td>
 
                 <td>
-                    <p><input class="form-control" list="operator">
+                    <p><input class="form-control" list="operator" name="operator">
                         <datalist id="operator">
                             <option value=">">
                             <option value="<">
+                            <option value=">=">
+                            <option value ="<=">
+                            <option value = "=">
+                            <option value = "!=">
                         </datalist></p>
                 </td>
 
@@ -157,21 +177,21 @@
                 </td>
 
                 <td style="width:100px;">
-                    <p><input type="radio" name="sort" value="not" checked>NOT &nbsp;<br> 
-                        <input type="radio" name="sort" value="and">AND &nbsp;<br> 
-                        <input type="radio" name="sort" value="or">OR
+                    <p><input type="radio" name="extender" value="not" checked>NOT &nbsp;<br> 
+                        <input type="radio" name="extender" value="and">AND &nbsp;<br> 
+                        <input type="radio" name="extender" value="or">OR
                 </td>
             </tr>    
             @endfor
         </table>
-
+        <p><input class="form-control" type="text" name="title" placeholder="Query Title"></p>
         <p class="submit">
-          <input type="button"  name="btnSave" id="btnSave" value="Save" onclick="SaveLocalStorage">&nbsp;
+          <input type="button"  name="btnSave" id="btnSave" value="Save" onclick="SaveLocalStorage()">&nbsp;
           <input type="submit"  name="btnSearch" id="btnSearch" value="Search">&nbsp;
           <input type="reset"   name="btnClear" value="Clear">
           <input type="reset"   name="btnClear" value="Add Row" style="float:right;" onclick="addRow()">
         </p>
-
+        <input type="hidden" id='hiddenInput' value='0' name='hiddenInput'>
       </form>
     </div>
 
@@ -184,8 +204,19 @@
     <!-- Scripts Here -->
 
     <script>
+    function SaveLocalStorage()
+    {
+        //alert('haha');
+        document.getElementById('hiddenInput').value = 1;
+        document.getElementById('myForm').submit();
+
+    }
+
         function addRow() 
         {
+//            var note = localStorage.getItem('sql'); 
+  //              alert(localStorage.getItem('sql'));
+
             var table = document.getElementById("myTable");
             var rows = document.getElementById("myTable").getElementsByTagName("tr").length;
 
@@ -198,6 +229,7 @@
             var cell6= row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
+           
 
             cell1.innerHTML = "<td style=\"width:100px;\"><p><input disabled class=\"form-control\" list=\"tableName\"><datalist><option value=\"Award\"><option value=\"Bid\"></datalist></p></td>";
             cell2.innerHTML = "<td id=\"fieldName\" style=\"width:100px;\"><p><input class=\"form-control\" list=\"fieldName\"><datalist><option value=\"AwardNo\"><option value=\"Ko\"></datalist></p></td>";
@@ -315,5 +347,6 @@
         { 
             document.getElementById('myQuery').innerHTML = window.tableName;
         }
+    
     </script>
 @stop

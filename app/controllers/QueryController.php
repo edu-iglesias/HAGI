@@ -2,27 +2,11 @@
 
 class QueryController extends BaseController {
 
+
 	public function index()
 	{
-		return View::make('query');
-	}
-	public function columnList()
-	{
 
 
-	if($tablename=="Awarding")
-		$tableCode = get_award();
-	else if($tablename=="Bidders")
-		$tableCode = get_bidders();
-	else if($tablename=="Organization")
-		$tableCode = get_organization();
-	else if($tablename=="Bid Line Item")
-		$tableCode = get_bid_line_item();
-	else if($tablename=="Bid Information")
-		$tableCode = get_bid_information();
-	else if($tablename=="Project Location")
-		$tableCode = get_project_location();
-	else if($tablename=="Organization Business Category")
 	
 	$rows = gen_query_getrow("Project Location");
 
@@ -150,9 +134,39 @@ public function tableList()
 	"Organization Business Category"
 		);
 }
-public function searchquery()
+public function getquery()
 {
+
+	$tablename=Input::get('tableName');
+	$field=Input::get('fieldName');
+
+	$condition=Input::get('operator');
+
+	$literal=Input::get('literal');
+
+	$orderfield=Input::get('fieldName');
+
+	$order =Input::get('sort');
+
+	$show=Input::get('show');
+
+	$unique=Input::get('unique');
+
+
+
+	if(Input::get('hiddenInput')==1)
+	{
+		Session::put('sql',  gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique));
+		Session::put('sqltitle', Input::get('title'));
+		return Redirect::to('/query');
+	}
+	else
+	{
 	
+		return gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
+	}
+
+ 		
 }
 
 }
