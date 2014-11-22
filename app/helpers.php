@@ -123,8 +123,7 @@ function gen_query($tablename, $field, $condition, $literal, $orderfield, $order
 		$content = trim(curl_exec($ch));
 		curl_close($ch);
 		
-		$readResults = json_decode($content, TRUE);
-		
+		$readResults = json_decode($content);
 		$specifics = $readResults->result->records;
 
 		return $specifics;

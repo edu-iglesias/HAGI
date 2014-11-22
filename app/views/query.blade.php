@@ -30,7 +30,7 @@
 <section class="container" style="width:100%;">
     <div class="advanceSearch" style="width:80%">
       <h1><!-- iQuery Advance Search --></h1>
-      <form method="post" action="" id="myForm">
+      <form method="post" action="/getquery" id="myForm">
         <table class="tbl_search table" id="myTable">
             <tr>
                 <th>Table Name</th> 
@@ -46,7 +46,7 @@
             @for ($i = 0; $i < 3; $i++)
             <tr>
                 <td style="width:100px;">
-                    <p><input class="form-control" list="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
+                    <p><input class="form-control" list="tableName"  name="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
                         <datalist id="tableName">
                             <option value="Awarding">
                             <option value="Bidders">
@@ -60,8 +60,8 @@
                 </td>
 
                 <td id="tb0" style="width:100px;">
-                    <p><input class="form-control" list="fieldName" disabled>
-                        <datalist id="fieldName">
+                    <p><input class="form-control" list="fieldName" name="fieldName" disabled>
+                        <datalist id="fieldName" >
                             <option value="AwardNo">
                             <option value="Ko">
                         </datalist></p>
@@ -132,8 +132,8 @@
 
 
                 <td >
-                    <p><input type="radio" name="sort" value="ascending" checked> Ascending &nbsp;<br> 
-                        <input type="radio" name="sort" value="descending" > Descending
+                    <p><input type="radio" name="sort" value="ASC" checked> Ascending &nbsp;<br> 
+                        <input type="radio" name="sort" value="DESC" > Descending
                 </td>
 
                 <td >
@@ -145,7 +145,7 @@
                 </td>
 
                 <td>
-                    <p><input class="form-control" list="operator">
+                    <p><input class="form-control" list="operator" name="operator">
                         <datalist id="operator">
                             <option value=">">
                             <option value="<">
@@ -157,9 +157,9 @@
                 </td>
 
                 <td style="width:100px;">
-                    <p><input type="radio" name="sort" value="not" checked>NOT &nbsp;<br> 
-                        <input type="radio" name="sort" value="and">AND &nbsp;<br> 
-                        <input type="radio" name="sort" value="or">OR
+                    <p><input type="radio" name="extender" value="not" checked>NOT &nbsp;<br> 
+                        <input type="radio" name="extender" value="and">AND &nbsp;<br> 
+                        <input type="radio" name="extender" value="or">OR
                 </td>
             </tr>    
             @endfor

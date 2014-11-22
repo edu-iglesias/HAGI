@@ -150,9 +150,24 @@ public function tableList()
 	"Organization Business Category"
 		);
 }
-public function searchquery()
+public function getquery()
 {
-	
+	$tablename=Input::get('tableName');
+	$field=Input::get('fieldName');
+
+	$condition=Input::get('operator');
+
+	$literal=Input::get('literal');
+
+	$orderfield=Input::get('fieldName');
+
+	$order =Input::get('sort');
+
+	$show=Input::get('show');
+
+	$unique=Input::get('unique');
+
+ return gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
 }
 
 }
