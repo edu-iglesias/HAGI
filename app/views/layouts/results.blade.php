@@ -38,6 +38,16 @@
           <div class="masthead clearfix results">
             <div class="inner">
               <h3 class="masthead-brand">iQuery</h3>
+              <div class="col-xs-12 col-md-7 results-search">
+              <select id="search-dropdown" style="width: 74%">
+                <option value="volvo">Query 1</option>
+                <option value="saab">Query 2</option>
+                <option value="mercedes">Query 3</option>
+                <option value="audi">Query 4</option>
+              </select>
+            
+              <button type="button" class="search">Search</button>
+              </div>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="https://philgeps.gov.ph/" target="_blank">PhilGEPS</a></li>
                 <li><a href="http://data.gov.ph/" target="_blank">Open Data</a></li>
