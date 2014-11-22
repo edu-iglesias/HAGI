@@ -20,15 +20,32 @@ Route::get('/merchant', 'MerchantController@index');
 /* TEST ROUTES */
 Route::get('/test', function()
 {
-	return get_query_bid_info();
+	$sql = 'SELECT * FROM "'.get_award().'" LIMIT 5';
+	
+	$results = get_query($sql);
+
+	dd($results);
 });
 
 
 Route::get('/chart', function()
 {
+	// fetch data from api
 	$bidInfos = get_query_bid_info();
 
-	// return View::make('chart')->with('bidInfos',$bidInfos);
+	// transform object to array
+	$mainarray = array();
+	foreach ($bidInfos as $key) 
+	{
+		$mainarray[] = (Array) $key;
+	}
 
-	return $bidInfos;
+	// insert array to csv
+	$file = fopen("csv/bid_info.csv","w");
+	foreach ($mainarray as $line)
+	{
+	  	fputcsv($file,$line);
+	}
+	fclose($file); 
+
 });
