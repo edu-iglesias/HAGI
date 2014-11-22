@@ -26,6 +26,14 @@
 
 		return $results;
 	}
+	function get_business_categories($org)
+	{	
+		$sql = 'SELECT classification, COUNT(ref_no), SUM(approved_budget) FROM "'.get_bid_information().'" GROUP BY business_category LIMIT 100';
+	
+		$results = get_query($sql);
+
+		return $results;
+	}
 	function get_check_org($org)
 	{	
 		$sql = 'SELECT * FROM "'.get_organization().'" WHERE org_name = '."'".$org."'".' LIMIT 100';
