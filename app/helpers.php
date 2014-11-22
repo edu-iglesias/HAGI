@@ -1,4 +1,99 @@
 <?php
+//
+function gen_query($tablename)
+{
+	$tableCode = "";
+
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
+	$sql = 'SELECT * FROM "'.$tableCode.'" LIMIT 100 ';
+	
+		$results = get_query($sql);
+
+		return $results;
+
+
+}
+
+function gen_query_condition($tablename, $field, $condition, $literal)
+{
+	$tableCode = "";
+	
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
+
+	
+	$sql = 'SELECT * FROM "'.$tableCode.'" WHERE '.$field.' '.$condition.' '."'".$literal."'".' LIMIT 100';
+	
+		$results = get_query($sql);
+
+		return $results;
+
+}
+
+//
+
+
+
+function gen_query_condition_order($tablename, $field, $condition, $literal, $orderfield, $order)
+{
+	$tableCode = "";
+	
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
+
+	
+	$sql = 'SELECT * FROM "'.$tableCode.'" WHERE '.$field.' '.$condition.' '."'".$literal."' ".'ORDER BY '.$orderfield.' '.$order.' LIMIT 100';
+	
+		$results = get_query($sql);
+
+		return $results;
+
+}
+
+
+
+
+
 // My common functions
 
 	function get_query($sql)
@@ -18,6 +113,14 @@
 
 		return $specifics;
 	}
+	function get_query_bid_info()
+	{	
+		$sql = 'SELECT * FROM "'.get_bid_information().'" LIMIT 5';
+	
+		$results = get_query($sql);
+
+		return $results;
+	}
 	function get_classifications()
 	{	
 		$sql = 'SELECT classification, COUNT(ref_no), SUM(approved_budget) FROM "'.get_bid_information().'" GROUP BY classification LIMIT 100';
@@ -28,7 +131,7 @@
 	}
 	function get_business_categories()
 	{	
-		$sql = 'SELECT classification, COUNT(ref_no), SUM(approved_budget) FROM "'.get_bid_information().'" GROUP BY business_category LIMIT 100';
+		$sql = 'SELECT business_category, COUNT(ref_no), SUM(approved_budget) FROM "'.get_bid_information().'" GROUP BY business_category LIMIT 100';
 	
 		$results = get_query($sql);
 
@@ -72,4 +175,6 @@
 	{
 		return '58ea40bf-15e9-4c38-adef-fd93455d8c7e';
 	}
+
+
 ?>
