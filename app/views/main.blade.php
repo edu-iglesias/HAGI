@@ -1,3 +1,13 @@
-<b>Main Page</b> <br><br>
+@extends('layouts.source')
 
-<a href="register">Register Here</a>
+@section('pagetitle')
+    HAGI!
+@stop
+
+@section('content')
+
+	<b>Main Page</b> <br><br>
+
+	<a href="register">Register Here</a>
+
+@stop

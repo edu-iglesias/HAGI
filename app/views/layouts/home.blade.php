@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>@yield('pagetitle')</title>
+@extends('layouts.sources')
 
-<link href="dash/css/bootstrap.min.css" rel="stylesheet">
-<link href="dash/css/datepicker3.css" rel="stylesheet">
-<link href="dash/css/styles.css" rel="stylesheet">
-{{ HTML::style('dash/css/bootstrap.min.css') }}
-{{ HTML::style('dash/css/datepicker3.css') }}
-{{ HTML::style('dash/css/styles.css') }}
+@section('pagetitle')
+    HAGI!
+@stop
 
-</head>
-
-<body>
+@section('contents')
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -39,7 +29,7 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 		
-	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+	<!--<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		<form role="search">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Search">
@@ -78,9 +68,9 @@
 			<li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Login Page</a></li>
 		</ul>
 		<div class="attribution">Template by <a href="http://www.medialoot.com/item/lumino-admin-bootstrap-template/">Medialoot</a></div>
-	</div><!--/.sidebar-->
+	</div>--><!--/.sidebar-->
 		
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
+	<div class="col-sm-12  col-lg-12 padding main">			
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -350,13 +340,14 @@
 		</div><!--/.row-->
 	</div>	<!--/.main-->
 
-	<script src="js/jquery-1.11.1.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/chart.min.js"></script>
-	<script src="js/chart-data.js"></script>
-	<script src="js/easypiechart.js"></script>
-	<script src="js/easypiechart-data.js"></script>
-	<script src="js/bootstrap-datepicker.js"></script>
+
+	{{ HTML::script('dash/js/jquery-1.11.1.min.js') }}
+	{{ HTML::script('dash/js/bootstrap.min.js') }}
+	{{ HTML::script('dash/js/chart.min.js') }}
+	{{ HTML::script('dash/js/chart-data.js') }}
+	{{ HTML::script('dash/js/easypiechart.js') }}
+	{{ HTML::script('dash/js/easypiechart-data.js') }}
+	{{ HTML::script('dash/js/bootstrap-datepicker.js') }}
 	<script>
 		$('#calendar').datepicker({
 		});
@@ -374,7 +365,5 @@
 		$(window).on('resize', function () {
 		  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
 		})
-	</script>	
-</body>
-
-</html>
+	</script>
+@stop
