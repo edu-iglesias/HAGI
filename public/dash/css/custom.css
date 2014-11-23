@@ -1,3 +1,15 @@
+html, body{
+	font-family: 'Raleway', sans-serif;
+}
+
+.nav li a{
+	color: gray;
+}
+
+.nav li a:hover{
+	color: black;
+}
+
 .col-centered{
     float: none;
     margin: 0 auto;
