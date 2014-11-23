@@ -59,7 +59,7 @@ Route::get('/test', function()
 });
 
 
-Route::get('/chart2', 'MerchantController@chart2');
+Route::get('/chart', 'ChartController@index');
 
 
  
@@ -69,4 +69,12 @@ Route::get('/query', 'QueryController@index');
 
 Route::post('/query', 'QueryController@getquery');
 Route::post('/savequery', 'QueryController@savequery');
+
+/* Charts for basic search */
+Route::get('/by_category', 'ChartController@by_category');
+Route::get('/by_agency', 'ChartController@by_agency');
+Route::get('/agency_performance', 'ChartController@agency_performance');
+Route::get('/comparison_category', 'ChartController@comparison_category');
+Route::get('/comparison_current', 'ChartController@acomparison_current');
+
 

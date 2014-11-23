@@ -25,6 +25,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    @yield('css')
   </head>
 
   <body>
@@ -75,9 +76,9 @@
               </div><br/>
               <div class="col-xs-12 col-md-6 results">
                 <div class="panel panel-default adv-panel col-centered">
-                  <div class="panel-body">
-                    <img src="https://docs.oracle.com/javafx/2/charts/img/pie-sample.png" width="100%" />
-                  </div>
+                  
+                      @yield('chart')
+                  
                 </div>
               </div>
             </p>
