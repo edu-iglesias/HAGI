@@ -53,11 +53,7 @@ Route::get('/testc', function()
 
 Route::get('/test', function()
 {
-	// $query = gen_query("Awarding", "award_title", "=", "BALLPEN","budget", "ASC", "0", "1");
-	// //$query2 = gen_query("Awarding", "award_title", "=", "BALLPEN","budget", "ASC", "0", "1");
-	// //dd($query1);
-	// //$query = array_udiff($query1, $query2, $query1);
-	// dd($query);
+	dd(all_query());
 
 	
 });

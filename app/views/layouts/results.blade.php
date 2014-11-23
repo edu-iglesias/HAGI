@@ -41,7 +41,10 @@
               <h3 class="masthead-brand">iQuery</h3>
               <div class="col-xs-12 col-md-7 results-search">
               <select id="search-dropdown" style="width: 74%">
-                <option value="volvo">Query 1</option>
+
+
+
+                <option value="volvo"></option>
                 <option value="saab">Query 2</option>
                 <option value="mercedes">Query 3</option>
                 <option value="audi">Query 4</option>

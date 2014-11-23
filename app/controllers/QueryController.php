@@ -136,7 +136,8 @@ public function tableList()
 }
 public function getquery()
 {
-
+    dd(Input::all());
+    
 	$tablename=Input::get('tableName');
 	$field=Input::get('fieldName');
 
