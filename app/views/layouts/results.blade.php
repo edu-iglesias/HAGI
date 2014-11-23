@@ -39,11 +39,8 @@
           <div class="masthead clearfix results">
             <div class="inner">
               <h3 class="masthead-brand">iQuery</h3>
-              <div class="col-xs-12 col-md-7 results-search">
-              <select id="search-dropdown" style="width: 74%">
-
-
-
+              <div class="col-xs-12 col-md-6 results-search">
+              <select id="search-dropdown" style="width: 69%">
                 <option value="volvo">Approved Budget</option>
                 <option value="saab">Query 2</option>
                 <option value="mercedes">Query 3</option>
@@ -56,6 +53,7 @@
                 <li class="active"><a href="https://philgeps.gov.ph/" target="_blank">PhilGEPS</a></li>
                 <li><a href="http://data.gov.ph/" target="_blank">Open Data</a></li>
                 <li><a href="http://i.gov.ph/" target="_blank">iGov</a></li>
+                <li><a href="elearning" target="_blank">eLearning</a></li>
               </ul>
             </div>
           </div>
@@ -63,7 +61,7 @@
           <div class="inner cover">
             <!--<h1 class="cover-heading">ERD</h1><br/>-->
             <p class="lead">
-              <div class="col-xs-12 col-md-6 results">
+              <!--<div class="col-xs-12 col-md-6 results">
                 <div>
                   <h2>Lorem ipsum dolor sit amet</h2>
                   <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -80,7 +78,8 @@
                       @yield('chart')
                   
                 </div>
-              </div>
+              </div>-->
+              @yield('contents')
             </p>
           </div><br/>
 

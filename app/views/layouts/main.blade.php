@@ -43,6 +43,7 @@
                 <li class="active"><a href="https://philgeps.gov.ph/" target="_blank">PhilGEPS</a></li>
                 <li><a href="http://data.gov.ph/" target="_blank">Open Data</a></li>
                 <li><a href="http://i.gov.ph/" target="_blank">iGov</a></li>
+                <li><a href="elearning" target="_blank">eLearning</a></li>
               </ul>
             </div>
           </div>

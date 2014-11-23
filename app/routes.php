@@ -73,4 +73,7 @@ Route::get('/comparison_current', 'ChartController@acomparison_current');
 
 Route::get('/approved_budget', 'ChartController@index');
 
-
+Route::get('/elearning', function()
+{
+	return View::make('elearning');
+});
