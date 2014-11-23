@@ -16,6 +16,7 @@
     <!-- Custom styles for this template -->
     <link href="dash/css/cover.css" rel="stylesheet">
     <link href="dash/css/custom.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -37,7 +38,7 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">iQuery</h3>
+              <!--<h3 class="masthead-brand">iQuery</h3>--><img src="logo-smaller.png" width="120" class="masthead-brand"/>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="https://philgeps.gov.ph/" target="_blank">PhilGEPS</a></li>
                 <li><a href="http://data.gov.ph/" target="_blank">Open Data</a></li>
