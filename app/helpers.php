@@ -40,8 +40,6 @@ function gen_sample_query($tablename, $preextension, $mainstring, $extension)
 		return $sql;
 }
 
-
-
 //
 function gen_query_getrow($tablename)
 {

@@ -44,13 +44,13 @@
 
 
 
-                <option value="volvo"></option>
+                <option value="volvo">Approved Budget</option>
                 <option value="saab">Query 2</option>
                 <option value="mercedes">Query 3</option>
                 <option value="audi">Query 4</option>
               </select>
             
-              <button type="button" class="search">Search</button>
+              <button href="/budget" type="button" class="search">Search</button>
               </div>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="https://philgeps.gov.ph/" target="_blank">PhilGEPS</a></li>
