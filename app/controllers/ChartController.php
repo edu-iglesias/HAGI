@@ -45,16 +45,8 @@ class ChartController extends BaseController {
 
 	public function by_category()
 	{
-		$myQuery = all_query();
-
-		$fetchedQuery = array();
-
-		foreach ($myQuery as $key) 
-		{
-			return get_query($key);
-		}
-
-		return $fetchedQuery[0];
+		$myQuery = govfunds_by_category();
+		return $myQuery;
 
 		return View::make('charts/funds_by_category');
 	}
