@@ -36,8 +36,6 @@ var title = document.getElementById('tcatch').value;
 
 <div class="imageHolder">
     <center><h1><p id="image">Image Here</p></h1><center>
-    <p id="myQuery">query string here</p>
-
 </div>
 
 <section class="container" style="width:100%;">
@@ -60,8 +58,6 @@ var title = document.getElementById('tcatch').value;
             @for ($i = 0; $i < 3; $i++)
             <tr>
                
-                 
-           
                 <td style="width:100px;">
                     <p><input class="form-control" list="tableName"  name="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
                         <datalist id="tableName">
@@ -334,10 +330,7 @@ var title = document.getElementById('tcatch').value;
                     document.getElementById('tb6').style.display = "none";
                     document.getElementById('tb7').style.display = "none";
                     break;
-
-
             }
-
 
             document.getElementById('myQuery').innerHTML = window.tableName;
             changeString();

@@ -9,7 +9,7 @@
 @stop
 
 
-@section('chart')
+@section('contents')
 	<div id="canvas-holder" align="center">
 		<br><br><br>
 		<canvas id="chart-area" width="300" height="300"/>
@@ -54,4 +54,20 @@
 			window.myPie = new Chart(ctx).Pie(pieData);
 		};
 	</script>
+
+	<br><br><br>
+	<table width="90%" class="table">
+		<thead>
+			<th>haha</th>
+			<th>hafdfd</th>
+			<th>hssss</th>
+		</thead>
+		<tbody>
+			<td>dsdsdsds</td>
+			<td>dsdsdsds</td>
+			<td>dsdsdsds</td>
+		</tbody>
+
+
+	</table>
 @stop
