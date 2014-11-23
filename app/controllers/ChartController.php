@@ -45,6 +45,9 @@ class ChartController extends BaseController {
 
 	public function by_category()
 	{
+		$myQuery = govfunds_by_category();
+		return $myQuery;
+
 		return View::make('charts/funds_by_category');
 	}
 
