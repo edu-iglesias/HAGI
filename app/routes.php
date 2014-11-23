@@ -53,7 +53,7 @@ Route::get('/testc', function()
 
 Route::get('/test', function()
 {
-	dd(all_query());
+	dd(govfunds_by_category());
 
 	
 });
