@@ -1,6 +1,27 @@
 <?php
 
+function govfunds_by_category()
+{
+	$tablename = "Bid Information";
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
 
+	$sql = 'SELECT classification, SUM('approved_budget') FROM "'.$tableCode.'" LIMIT 100 ';
+	
+	$results = get_query($sql);
+}
 
 function gen_sample_query($tablename, $preextension, $mainstring, $extension)
 {
@@ -31,9 +52,8 @@ function all_query()
 	//1 CHART
 	$queries[]=gen_sample_query('Bid Information','', "classification, SUM('approved_budget')", '');
 	
-	$queries[]=gen_sample_query('award_title','', "org_id, COUNT('awarded_title')", '');
-
-	dd($queries);
+	$queries[]=gen_sample_query('Awardings','', "org_id, COUNT('awarded_title')", '');
+	
 }
 
 
