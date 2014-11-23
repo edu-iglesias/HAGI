@@ -10,7 +10,7 @@
 
 @section('contents')
     
-    <div style="width: 50%">
+    <div style="width: 50%" >
         <canvas id="canvas" height="450" width="600"></canvas>
     </div>
 

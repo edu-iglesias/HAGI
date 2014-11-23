@@ -38,7 +38,7 @@ class ChartController extends BaseController {
 		fclose($file); 
 
 		//return $mainarray;
-	 	return View::make('chart')
+	 	return View::make('chart2')
 	 		->with('budget', $budget)
 	 		->with('businessCategory', $businessCategory);
 	}
