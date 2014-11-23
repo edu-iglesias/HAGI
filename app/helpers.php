@@ -18,11 +18,34 @@ function govfunds_by_category()
 	else if($tablename=="Organization Business Category")
 		$tableCode = get_organization_business_category();
 
+	$sql = "SELECT classification, SUM('approved_budget')".' '.'FROM "'.$tableCode.'" LIMIT 100 ';
+	
+	$results = get_query($sql);
+}
+/*
+function getorgname()
+{
+	$tablename = "Bid Inform";
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
 	$sql = 'SELECT classification, SUM('approved_budget') FROM "'.$tableCode.'" LIMIT 100 ';
 	
 	$results = get_query($sql);
 }
-
+*/
 function gen_sample_query($tablename, $preextension, $mainstring, $extension)
 {
 	$tableCode = "";
