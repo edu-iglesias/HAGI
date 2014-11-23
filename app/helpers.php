@@ -1,4 +1,45 @@
 <?php
+
+function govfunds_by_category()
+{
+
+$q = gen_sample_query('Bid Information', "classification, SUM('approved_budget')", '', '');
+	
+$data = get_query($q);
+return $data;
+}
+function sourcefunds_by_category()
+{
+
+$q = gen_sample_query('Bid Information',"funding_instrument, SUM('approved_budget')", '', '');
+	
+$data = get_query($q);
+return $data;
+}
+
+function gen_sample_query($tablename, $preextension, $mainstring, $extension)
+{
+	$tableCode = "";
+
+	if($tablename=="Awarding")
+		$tableCode = get_award();
+	else if($tablename=="Bidders")
+		$tableCode = get_bidders();
+	else if($tablename=="Organization")
+		$tableCode = get_organization();
+	else if($tablename=="Bid Line Item")
+		$tableCode = get_bid_line_item();
+	else if($tablename=="Bid Information")
+		$tableCode = get_bid_information();
+	else if($tablename=="Project Location")
+		$tableCode = get_project_location();
+	else if($tablename=="Organization Business Category")
+		$tableCode = get_organization_business_category();
+
+	$sql = 'SELECT '.$preextension.' '.$mainstring.' FROM "'.$tableCode.'"'.$extension.' ';
+		return $sql;
+}
+
 //
 function gen_query_getrow($tablename)
 {
@@ -132,7 +173,6 @@ function gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $o
 	$preextension ="";
 
 	if($literal!=NULL&&$condition!=NULL)
-
 				$extension .= 'WHERE '.$field.' '.$condition.' '."'".$literal."' ";
 	if($order!=NULL&&$orderfield!=NULL)
 				$extension .= 'ORDER BY '.$orderfield.' '.$order;
@@ -184,10 +224,13 @@ function gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $o
 		curl_close($ch);
 		
 		$readResults = json_decode($content);
+
 		$specifics = $readResults->result->records;
 
 		return $specifics;
 	}
+
+
 	function get_query_bid_info()
 	{	
 		$sql = 'SELECT * FROM "'.get_bid_information().'" LIMIT 5';

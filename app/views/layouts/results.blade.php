@@ -25,6 +25,7 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    @yield('css')
   </head>
 
   <body>
@@ -40,13 +41,16 @@
               <h3 class="masthead-brand">iQuery</h3>
               <div class="col-xs-12 col-md-7 results-search">
               <select id="search-dropdown" style="width: 74%">
-                <option value="volvo">Query 1</option>
+
+
+
+                <option value="volvo">Approved Budget</option>
                 <option value="saab">Query 2</option>
                 <option value="mercedes">Query 3</option>
                 <option value="audi">Query 4</option>
               </select>
             
-              <button type="button" class="search">Search</button>
+              <button href="/budget" type="button" class="search">Search</button>
               </div>
               <ul class="nav masthead-nav">
                 <li class="active"><a href="https://philgeps.gov.ph/" target="_blank">PhilGEPS</a></li>
@@ -72,9 +76,9 @@
               </div><br/>
               <div class="col-xs-12 col-md-6 results">
                 <div class="panel panel-default adv-panel col-centered">
-                  <div class="panel-body">
-                    <img src="https://docs.oracle.com/javafx/2/charts/img/pie-sample.png" width="100%" />
-                  </div>
+                  
+                      @yield('chart')
+                  
                 </div>
               </div>
             </p>

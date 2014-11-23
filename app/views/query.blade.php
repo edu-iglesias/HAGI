@@ -36,8 +36,6 @@ var title = document.getElementById('tcatch').value;
 
 <div class="imageHolder">
     <center><h1><p id="image">Image Here</p></h1><center>
-    <p id="myQuery">query string here</p>
-
 </div>
 
 <section class="container" style="width:100%;">
@@ -60,10 +58,8 @@ var title = document.getElementById('tcatch').value;
             @for ($i = 0; $i < 3; $i++)
             <tr>
                
-                 
-           
                 <td style="width:100px;">
-                    <p><input class="form-control" list="tableName"  name="tableName" onchange="changeTable(this.value)"  @if($i != 0) disabled @endif>
+                    <p><input class="form-control" list="tableName"  name="tableName{{$i}}" onchange="changeTable(this.value)"  >
                         <datalist id="tableName">
                             <option value="Awarding">
                             <option value="Bidders">
@@ -77,7 +73,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb0" style="width:100px;">
-                    <p><input class="form-control" list="fieldName" name="fieldName" disabled>
+                    <p><input class="form-control" list="fieldName" name="fieldName{{$i}}" >
                         <datalist id="fieldName" >
                             <option value="AwardNo">
                             <option value="Ko">
@@ -85,7 +81,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb1"  style="display:none;">
-                    <p><input class="form-control" list="fieldName1">
+                    <p><input class="haha form-control" list="fieldName1" name="fieldName1{{$i}}" >
                         <datalist id="fieldName1">
                             @foreach($tb1 as $key)
                                 <option value="{{ $key }}">
@@ -94,7 +90,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb2" style="display:none;">
-                    <p><input class="form-control" list="fieldName2">
+                    <p><input class="form-control" list="fieldName2" name="fieldName2{{$i}}">
                         <datalist id="fieldName2">
                             @foreach($tb2 as $key)
                                 <option value="{{ $key }}">
@@ -103,7 +99,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb3" style="display:none;">
-                    <p><input class="form-control" list="fieldName3">
+                    <p><input class="form-control" list="fieldName3" name="fieldName3{{$i}}">
                         <datalist id="fieldName3">
                             @foreach($tb3 as $key)
                                 <option value="{{ $key }}">
@@ -112,7 +108,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb4" style="display:none;">
-                    <p><input class="form-control" list="fieldName4">
+                    <p><input class="form-control" list="fieldName4" name="fieldName4{{$i}}">
                         <datalist id="fieldName4">
                             @foreach($tb4 as $key)
                                 <option value="{{ $key }}">
@@ -121,7 +117,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb5" style="display:none;">
-                    <p><input class="form-control" list="fieldName5">
+                    <p><input class="form-control" list="fieldName5" name="fieldName5{{$i}}">
                         <datalist id="fieldName5">
                             @foreach($tb5 as $key)
                                 <option value="{{ $key }}">
@@ -130,7 +126,7 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td id="tb6" style="display:none;">
-                    <p><input class="form-control" list="fieldName6">
+                    <p><input class="form-control" list="fieldName6" name="fieldName6{{$i}}">
                         <datalist id="fieldName6">
                             @foreach($tb6 as $key)
                                 <option value="{{ $key }}">
@@ -138,7 +134,7 @@ var title = document.getElementById('tcatch').value;
                         </datalist></p>
                 </td>
                 <td id="tb7" style="display:none;">
-                    <p><input class="form-control" list="fieldName7">
+                    <p><input class="form-control" list="fieldName7" name="fieldName7{{$i}}">
                         <datalist id="fieldName7">
                             @foreach($tb7 as $key)
                                 <option value="{{ $key }}">
@@ -148,20 +144,20 @@ var title = document.getElementById('tcatch').value;
 
 
                 <td >
-                    <p><input type="radio" name="sort" value="ASC" checked> Ascending &nbsp;<br> 
-                        <input type="radio" name="sort" value="DESC" > Descending
+                    <p><input type="radio" name="sort{{$i}}" value="ASC" checked> Ascending &nbsp;<br> 
+                        <input type="radio" name="sort{{$i}}" value="DESC" > Descending
                 </td>
 
                 <td >
-                    <p><input type="checkbox" name="show">
+                    <p><input type="checkbox" name="show{{$i}}">
                 </td>
 
                 <td >
-                    <p><input type="checkbox" name="unique"> 
+                    <p><input type="checkbox" name="unique{{$i}}"> 
                 </td>
 
                 <td>
-                    <p><input class="form-control" list="operator" name="operator">
+                    <p><input class="form-control" list="operator" name="operator{{$i}}">
                         <datalist id="operator">
                             <option value=">">
                             <option value="<">
@@ -173,13 +169,13 @@ var title = document.getElementById('tcatch').value;
                 </td>
 
                 <td style="width:100px;">
-                    <p><input class="form-control" type="text" name="literal">
+                    <p><input class="form-control" type="text" name="literal{{$i}}">
                 </td>
 
                 <td style="width:100px;">
-                    <p><input type="radio" name="extender" value="not" checked>NOT &nbsp;<br> 
-                        <input type="radio" name="extender" value="and">AND &nbsp;<br> 
-                        <input type="radio" name="extender" value="or">OR
+                    <p><input type="radio" name="extender{{$i}}" value="not" checked>NOT &nbsp;<br> 
+                        <input type="radio" name="extender{{$i}}" value="and">AND &nbsp;<br> 
+                        <input type="radio" name="extender{{$i}}" value="or">OR
                 </td>
             </tr>    
             @endfor
@@ -226,7 +222,7 @@ var title = document.getElementById('tcatch').value;
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
             var cell5 = row.insertCell(4);
-            var cell6= row.insertCell(5);
+            var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
            
@@ -254,6 +250,9 @@ var title = document.getElementById('tcatch').value;
             switch(value) 
             {
                 case "Awarding":
+                    var instance = document.getElementsByClassName('haha form-control');
+                    instance[1].style.display = "table-cell";
+
                     document.getElementById('tb0').style.display = "none";
                     document.getElementById('tb1').style.display = "table-cell";
                     document.getElementById('tb2').style.display = "none";
@@ -334,14 +333,12 @@ var title = document.getElementById('tcatch').value;
                     document.getElementById('tb6').style.display = "none";
                     document.getElementById('tb7').style.display = "none";
                     break;
-
-
             }
-
 
             document.getElementById('myQuery').innerHTML = window.tableName;
             changeString();
         }
+
 
         function changeString()
         { 

@@ -51,15 +51,15 @@
             <!--<h1 class="cover-heading">iQuery</h1>--><img src="logo.png" width="400" /><br/>
             <p class="lead">
               <select id="search-dropdown">
-                <option value="volvo">Query 1</option>
+                <option value="volvo">Approved Budget</option>
                 <option value="saab">Query 2</option>
                 <option value="mercedes">Query 3</option>
                 <option value="audi">Query 4</option>
               </select>
-              <button type="button" class="search">Search</button>
+              <a type="button" href="/approved_budget" class="search btn">Search</a>
               </p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default adv-search">Advanced Search</a>
+              <a href="/query" class="btn btn-lg btn-default adv-search">Advanced Search</a>
             </p>
           </div>
 

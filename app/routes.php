@@ -21,12 +21,10 @@ Route::get('/bids', function()
 
 
 
-
 Route::get('/chart', function()
 {
 	// fetch data from api
 	$bidInfos = get_query_bid_info();
-
 
 	// transform object to array
 	$mainarray = array();
@@ -53,17 +51,13 @@ Route::get('/testc', function()
 
 Route::get('/test', function()
 {
-	// $query = gen_query("Awarding", "award_title", "=", "BALLPEN","budget", "ASC", "0", "1");
-	// //$query2 = gen_query("Awarding", "award_title", "=", "BALLPEN","budget", "ASC", "0", "1");
-	// //dd($query1);
-	// //$query = array_udiff($query1, $query2, $query1);
-	// dd($query);
+	return govfunds_by_category();
 
 	
 });
 
 
-Route::get('/chart2', 'MerchantController@chart2');
+Route::get('/basic', 'ChartController@index');
 
 
  
@@ -73,4 +67,14 @@ Route::get('/query', 'QueryController@index');
 
 Route::post('/query', 'QueryController@getquery');
 Route::post('/savequery', 'QueryController@savequery');
+
+/* Charts for basic search */
+Route::get('/by_category', 'ChartController@by_category');
+Route::get('/by_agency', 'ChartController@by_agency');
+Route::get('/agency_performance', 'ChartController@agency_performance');
+Route::get('/comparison_category', 'ChartController@comparison_category');
+Route::get('/comparison_current', 'ChartController@acomparison_current');
+
+Route::get('/approved_budget', 'ChartController@index');
+
 
