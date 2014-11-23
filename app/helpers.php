@@ -2,9 +2,16 @@
 
 function govfunds_by_category()
 {
-$resultants=gen_query_sql('Bid Information', '', '', '', '', '', '', '');
 
-$q = gen_sample_query('Bid Information','', "classification, SUM('approved_budget')", '');
+$q = gen_sample_query('Bid Information', "classification, SUM('approved_budget')", '', '');
+	
+$data = get_query($q);
+return $data;
+}
+function sourcefunds_by_category()
+{
+
+$q = gen_sample_query('Bid Information',"funding_instrument, SUM('approved_budget')", '', '');
 	
 $data = get_query($q);
 return $data;
@@ -29,20 +36,10 @@ function gen_sample_query($tablename, $preextension, $mainstring, $extension)
 	else if($tablename=="Organization Business Category")
 		$tableCode = get_organization_business_category();
 
-	$sql = 'SELECT '.$preextension.' '.$mainstring.' FROM "'.$tableCode.'"'.$extension.' LIMIT 100';
+	$sql = 'SELECT '.$preextension.' '.$mainstring.' FROM "'.$tableCode.'"'.$extension.' ';
 		return $sql;
 }
 
-function all_query()
-{
-	$queries=array();
-	//1 CHART
-	$queries[]=gen_sample_query('Bid Information','', "classification, SUM('approved_budget')", '');
-	
-	$queries[]=gen_sample_query('Awardings','', "org_id, COUNT('awarded_title')", '');
-	
-
-}
 
 
 //

@@ -59,7 +59,7 @@
               <button type="button" class="search">Search</button>
               </p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default adv-search">Advanced Search</a>
+              <a href="/query" class="btn btn-lg btn-default adv-search">Advanced Search</a>
             </p>
           </div>
 
