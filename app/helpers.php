@@ -79,12 +79,7 @@ function gen_query_getrow($tablename)
 	}
 
 	return $colarray;
-
-
 }
-
-
-
 
 
 function gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique)
@@ -148,8 +143,6 @@ function gen_query($tablename, $field, $condition, $literal, $orderfield, $order
 }
 
 
-
-
 function gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique)
 {
 	$tableCode = "";
@@ -202,13 +195,9 @@ function gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $o
 		$mainstring="*";
 
 	$sql = 'SELECT '.$preextension.' '.$mainstring.' FROM "'.$tableCode.'"'.$extension.' LIMIT 100';
-		
-
-
+	
 		return $sql;
-
 }
-
 
 
 // My common functions

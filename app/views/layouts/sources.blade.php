@@ -25,7 +25,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+					<a class="navbar-brand" href="#"><span>iQuery</a>
 					<ul class="user-menu">
 						<li class="dropdown pull-right">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> User <span class="caret"></span></a>

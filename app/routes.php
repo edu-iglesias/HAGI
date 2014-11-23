@@ -19,8 +19,6 @@ Route::get('/bids', function()
 
 /* GOVERNMENT ROUTES */
 
-
-
 Route::get('/chart', function()
 {
 	// fetch data from api
@@ -56,9 +54,7 @@ Route::get('/test', function()
 	
 });
 
-
 Route::get('/basic', 'ChartController@index');
-
 
  
 /* NEW ROUTES */

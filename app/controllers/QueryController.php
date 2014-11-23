@@ -164,7 +164,12 @@ public function getquery()
 	else
 	{
 	
-		return gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
+		$queryResult = gen_query($tablename, $field, $condition, $literal, $orderfield, $order, $show, $unique);
+
+		$convertToArray = (Array) $queryResult;
+		return $convertToArray;
+		//return View::make("advancedResult");
+
 	}
 
  		
