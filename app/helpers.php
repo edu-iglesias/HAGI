@@ -229,7 +229,7 @@ function gen_query_sql($tablename, $field, $condition, $literal, $orderfield, $o
 		curl_close($ch);
 		
 		$readResults = json_decode($content);
-		dd($readResults);
+
 		$specifics = $readResults->result->records;
 
 		return $specifics;
